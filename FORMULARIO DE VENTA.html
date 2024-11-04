@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMULARIO DE VENTA - JOCHANI TULA JESSEL CASANDRA</title>
+</head>
+<style>
+    body{
+        font-family: Arial, sans-serif; 
+        font-size: 17px;
+    }
+    #banner {
+        width: 750px;
+        height: 130px;
+        font-size: 20px;
+        background-image: url(img/Banner.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+
+        top: 0;
+        left: 0;
+        z-index: 1000;        
+    }
+    .local {
+        font-family: Arial, sans-serif;
+        max-width: 1500px;
+        margin: auto;
+        padding: 20px;
+        border: 2px solid #000000a4;
+        border-radius: 8px;
+        background: #d4e6f1 
+    }
+    .localE img {
+        position: absolute;
+        right: 30px;
+        
+        height: 130px;
+        width: auto;
+        top: 20px;        
+    }
+    .localE {
+        width: 100%;
+        height: 130px;
+        font-size: 17px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        box-sizing: border-box;
+        
+
+        top: 0;
+        left: 0;
+        z-index: 1000;        
+    }
+    .header, .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        background-color: #154360 ;
+    }    
+    .header div, .footer div {
+        flex: 1;
+    }
+    .header input, .footer input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #000000;
+        border-radius: 4px;
+    }
+    label{
+        color: #d0d3d4;
+        text-align: left;
+
+    }
+    table {
+        max-width: 990px;
+        width: 985px;
+        border-collapse: collapse;
+        margin-top: 10px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+    }
+    th, td {
+        border: 2px solid #000000;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #154360;
+        color: #d0d3d4;
+    }
+    .totals {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+    .totals label {
+        margin-right: 10px;
+    }
+    .product-image {
+        width: 100px;
+        height: auto;
+        margin-top: 5px;
+        display: none;
+    }
+    .print-button {
+        background-color: #154360;
+        color: #d0d3d4;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 15px;
+        cursor: pointer;
+        width: 100%; /* Hacer el botón largo */
+        margin-top: 20px; /* Espacio encima del botón */
+        border: 2px solid #000000;
+        border-radius: 5px;
+        font-family: Arial, sans-serif; 
+        font-size: 17px;
+    }
+    .print-button:hover {
+        background-color: #154360;        
+    }
+    input[type="text"],input[type="date"],input[type="tel"],input[type="email"],input[type="number"]{
+        font-size: 17px;
+        border: 2px solid #000000;
+        border-radius: 5px;
+        padding: 2px;
+        text-align: center;
+        font-family: Arial, sans-serif;        
+    }
+</style>
+<body>
+    <div class="local">
+        <div class="localE">
+            <h1>FORMULARIO DE VENTA</h1>
+            <img src="img/LOGO.png" alt="Logo" width="150px" style="justify-items: end;">      
+        </div>
+    
+        <div class="header">
+            <div>
+                <label for="client">CLIENTE:</label>
+                <input type="text" id="client" name="client" oninput="capitalizeFirstLetters()">
+            </div>
+            <br>
+            <div>
+                <label for="phone">TELEFONO/CELULAR:</label>
+                <input type="tel" id="phone" name="phone" placeholder="Ejemplo: 77766666">
+            </div>
+            <div>
+                <label for="date">FECHA:</label>
+                <input type="date" id="date" name="date">
+            </div>
+        </div>
+    
+        <div class="header">
+            <div>
+                <label for="address">DIRECCION:</label>
+                <input type="text" id="address" name="address">
+            </div>
+            <div>
+                <label for="email">E-MAIL:</label>
+                <input type="email" id="email" name="email">
+            </div>
+        </div>
+    
+        <table>
+            <tr>
+                <th>CANTIDAD</th>
+                <th>DESCRIPCIÓN</th>
+                <th>P. UNIT.</th>
+                <th>IMPORTE</th>
+            </tr>
+            <tr>
+                <td><input type="number" id="cantidad1" name="cantidad1" min="1" oninput="Subtotal(1)"></td>
+                <td>
+                    <select id="descripcion1" name="descripcion1" onchange="Imagen(1)">
+                        <option value="">Seleccione su libro...</option>
+                        <option value="Libro 1">Besar a un angel - 180Bs.</option>
+                        <option value="Libro 2">Fuego y sangre - 400 Bs.</option>
+                        <option value="Libro 3">Deseo concedido - 180 Bs.</option>
+                        <option value="Libro 4">Cumbres borrascosas - 200 Bs.</option>
+                        <option value="Libro 5">Orgullo y prejuicio - 200Bs.</option>
+                    </select>
+                    <div style="justify-items: center;"><img src="" alt="Producto" id="productImage1" class="product-image"></div>
+                </td>
+                <td><input type="number" id="PU1" name="PU1" min="0" step="0.01" oninput="Subtotal(1)"></td>
+                <td><input type="text" id="subtotal1" name="subtotal1" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cantidad2" name="cantidad2" min="1" oninput="Subtotal(2)"></td>
+                <td>
+                    <select id="descripcion2" name="descripcion2" onchange="Imagen(2)">
+                        <option value="">Seleccione su libro...</option>
+                        <option value="Libro 1">Besar a un angel - 180Bs.</option>
+                        <option value="Libro 2">Fuego y sangre - 400 Bs.</option>
+                        <option value="Libro 3">Deseo concedido - 180 Bs.</option>
+                        <option value="Libro 4">Cumbres borrascosas - 200 Bs.</option>
+                        <option value="Libro 5">Orgullo y prejuicio - 200Bs.</option>
+                    </select>
+                    <div style="justify-items: center;"><img src="" alt="Producto" id="productImage2" class="product-image"></div>
+                    <div id="DESC1"></div>
+                </td>
+                <td><input type="number" id="PU2" name="PU2" min="0" step="0.01" oninput="Subtotal(2)"></td>
+                <td><input type="text" id="subtotal2" name="subtotal2" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cantidad3" name="cantidad3" min="1" oninput="Subtotal(3)"></td>
+                <td>
+                    <select id="descripcion3" name="descripcion3" onchange="Imagen(3)">
+                        <option value="">Seleccione su libro...</option>
+                        <option value="Libro 1">Besar a un angel - 180Bs.</option>
+                        <option value="Libro 2">Fuego y sangre - 400 Bs.</option>
+                        <option value="Libro 3">Deseo concedido - 180 Bs.</option>
+                        <option value="Libro 4">Cumbres borrascosas - 200 Bs.</option>
+                        <option value="Libro 5">Orgullo y prejuicio - 200Bs.</option>
+                    </select>
+                    <div style="justify-items: center;"><img src="" alt="Producto" id="productImage3" class="product-image"></div>
+                </td>
+                <td><input type="number" id="PU3" name="PU3" min="0" step="0.01" oninput="Subtotal(3)"></td>
+                <td><input type="text" id="subtotal3" name="subtotal3" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cantidad4" name="cantidad4" min="1" oninput="Subtotal(4)"></td>
+                <td>
+                    <select id="descripcion4" name="descripcion4" onchange="Imagen(4)">
+                        <option value="">Seleccione su libro...</option>
+                        <option value="Libro 1">Besar a un angel - 180Bs.</option>
+                        <option value="Libro 2">Fuego y sangre - 400 Bs.</option>
+                        <option value="Libro 3">Deseo concedido - 180 Bs.</option>
+                        <option value="Libro 4">Cumbres borrascosas - 200 Bs.</option>
+                        <option value="Libro 5">Orgullo y prejuicio - 200Bs.</option>
+                    </select>
+                    <div style="justify-items: center;"><img src="" alt="Producto" id="productImage4" class="product-image"></div>
+                </td>
+                <td><input type="number" id="PU4" name="PU4" min="0" step="0.01" oninput="Subtotal(4)"></td>
+                <td><input type="text" id="subtotal4" name="subtotal4" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="cantidad5" name="cantidad5" min="1" oninput="Subtotal(5)"></td>
+                <td>
+                    <select id="descripcion5" name="descripcion5" onchange="Imagen(5)">
+                        <option value="">Seleccione su libro...</option>
+                        <option value="Libro 1">Besar a un angel - 180Bs.</option>
+                        <option value="Libro 2">Fuego y sangre - 400 Bs.</option>
+                        <option value="Libro 3">Deseo concedido - 180 Bs.</option>
+                        <option value="Libro 4">Cumbres borrascosas - 200 Bs.</option>
+                        <option value="Libro 5">Orgullo y prejuicio - 200Bs.</option>
+                    </select>
+                    <div style="justify-items: center;"><img src="" alt="Producto" id="productImage5" class="product-image"></div>
+                </td>
+                <td><input type="number" id="PU5" name="PU5" min="0" step="0.01" oninput="Subtotal(5)"></td>
+                <td><input type="text" id="subtotal5" name="subtotal5" readonly></td>
+            </tr>
+        </table><br>
+        <div style="text-align: left;">
+            <div class="totals">
+                <label for="totalSubtotal" style="color: #000000 ;">SUB-TOTAL Bs.</label>
+                <input type="text" id="totalSubtotal" name="totalSubtotal" readonly><br><br>
+            </div>
+            <div class="totals">
+                <label for="tax" style="color: #000000 ;">I.V.A. (13%) Bs.</label>
+                <input type="text" id="tax" name="tax" readonly><br><br>
+            </div>
+            <div class="totals">
+                <label for="totalAmount" style="color: #000000 ;">TOTAL Bs.</label>
+                <input type="text" id="totalAmount" name="totalAmount" readonly><br><br>
+            </div>
+        </div><br>
+        <div class="header">
+            <div>
+                <label for="address">EXPEDIDA POR:</label>
+                <input type="text" id="address" name="empleado">                
+            </div>            
+        </div>
+    </div>
+        <button class="print-button" onclick="window.print()">IMPRIMIR FORMULARIO</button>
+        
+    <script>
+        function capitalizeFirstLetters() {
+            let input = document.getElementById("client");
+            input.value = input.value.replace(/\b\w/g, char => char.toUpperCase());
+        }
+    
+    function Subtotal(row) {
+        let cantidad = document.getElementById(`cantidad${row}`).value;
+        let PU = document.getElementById(`PU${row}`).value;
+        let subtotal = cantidad * PU;
+        document.getElementById(`subtotal${row}`).value = subtotal.toFixed(2);
+        calculateTotal();
+    }
+    
+    function calculateTotal() {
+        let totalSubtotal = 0;
+            for (let i = 1; i <= 5; i++) {
+                let subtotal = parseFloat(document.getElementById(`subtotal${i}`).value) || 0;
+                totalSubtotal += subtotal;
+            }
+        document.getElementById("totalSubtotal").value = totalSubtotal.toFixed(2);
+        let tax = totalSubtotal * 0.13;
+        document.getElementById("tax").value = tax.toFixed(2);
+        document.getElementById("totalAmount").value = (totalSubtotal + tax).toFixed(2);
+    }
+    
+    function Imagen(row) {
+        const select = document.getElementById(`descripcion${row}`);
+        const image = document.getElementById(`productImage${row}`);
+            
+        switch (select.value) {
+            case "Libro 1":
+                image.src = "img/libro1.jpg";
+                image.style.display = "block";
+                break;
+            case "Libro 2":
+                image.src = "img/libro2.jpg";
+                image.style.display = "block";
+                break;
+            case "Libro 3":
+                image.src = "img/libro3.jpg";
+                image.style.display = "block";
+                break;
+            case "Libro 4":
+                image.src = "img/libro4.jpg";
+                image.style.display = "block";
+                break;
+            case "Libro 5":
+                image.src = "img/libro5.jpg";
+                image.style.display = "block";
+                break;
+            default:
+                image.style.display = "none";
+        }
+    }
+    </script>
+</html>
